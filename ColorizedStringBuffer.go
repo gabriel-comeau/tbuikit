@@ -1,4 +1,4 @@
-package termbox-uikit
+package tbuikit
 
 // This type wraps a string slice to be used
 // to display string-wrapper objects on the screen.

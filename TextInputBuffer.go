@@ -1,4 +1,4 @@
-package termbox-uikit
+package tbuikit
 
 // This buffer represents the storage for any field a user can type text into
 type TextInputBuffer struct {

@@ -1,4 +1,4 @@
-package termbox-uikit
+package tbuikit
 
 // Represents a simple rectangle
 type Rectangle struct {

@@ -1,4 +1,4 @@
-package termbox-uikit
+package tbuikit
 
 import (
 	"github.com/nsf/termbox-go"

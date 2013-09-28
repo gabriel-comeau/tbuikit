@@ -1,4 +1,4 @@
-package termbox-uikit
+package tbuikit
 
 // Declare some library wide constants
 const (
