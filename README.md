@@ -20,7 +20,7 @@ and I'm still considering whether or not I'd prefer to have a bunch of setter me
 There are also a lot of features I'd like to add, some of which could have consequences on the API.
 
 ### Installation
-Install and update this go package with `go get -u github.com/gabriel-comeau/tbuikit`
+Install and update this go package with `go get -u github.com/gabriel-comeau/termbox-uikit`
 You'll also want to install termbox-go (for access to the colors) with `go get -u github.com/nsf/termbox-go`
 
 ### Examples
