@@ -159,7 +159,7 @@ func (this *ButtonWidget) SetText(btnText string) {
 
 // A "constructor" function to create new widgets.
 func CreateButtonWidget(buttonText string, textPos ScreenPosition, defTextCol, selTextCol, defBgCol, selBgCol, defBorCol, selBorCol termbox.Attribute,
-	calcFunction CalcFunction, selectable bool, selected bool) *ButtonWidget {
+	calcFunction CalcFunction, selectable, selected bool) *ButtonWidget {
 
 	widget := new(ButtonWidget)
 	widget.buttonText = buttonText
