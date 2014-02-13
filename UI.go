@@ -12,6 +12,7 @@ type UI struct {
 	screenHolder      []*Screen
 	globalKeyBindings map[interface{}]EventCallback
 	uiShutdownChan    chan bool
+	redrawDelay       time.Duration
 }
 
 func (this *UI) Start(quitChan chan bool) {
@@ -49,6 +50,15 @@ func (this *UI) AddCharKeyCallback(char rune, callback EventCallback) {
 		this.globalKeyBindings = make(map[interface{}]EventCallback)
 	}
 	this.globalKeyBindings[char] = callback
+}
+
+// Set the delay time between redraws, in milliseconds
+// If this isn't set, it will default to 10 ms between refreshes, which
+// can be plenty fast enough or very slow, depending on what you want
+// your app to do.  Using actual zero, even with minimal UI elements, quickly
+// chews through CPU time.
+func (this *UI) SetDrawDelay(delay int) {
+	this.redrawDelay = time.Duration(delay)
 }
 
 // Internal method for getting the active screen of the UI.
@@ -123,7 +133,11 @@ func (this *UI) mainLoop(quitChan chan bool) {
 
 		default:
 			this.getActiveScreen().Draw()
-			time.Sleep(10 * time.Millisecond)
+			if this.redrawDelay < 1 {
+				time.Sleep(10 * time.Millisecond)
+			} else {
+				time.Sleep(this.redrawDelay * time.Millisecond)
+			}
 		}
 	}
 }
